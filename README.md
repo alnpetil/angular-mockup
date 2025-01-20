@@ -1,5 +1,11 @@
 # Angular Project
 
+## Dependencies
+
+Angular and Angular Material UI are needed.
+
+## Starting the server
+
 To start a local development server, run:
 
 ```bash
