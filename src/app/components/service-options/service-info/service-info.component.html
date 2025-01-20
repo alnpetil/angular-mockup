@@ -1,0 +1,20 @@
+<div>
+  <span>
+    {{ title }}
+  </span>
+  <div [style.color]="service.color"  *ngFor="let service of services">
+    <div *ngIf="!hasPrice; else price">
+      <mat-icon [style.background]="service.iconBackground">
+        {{ service.icon }}
+      </mat-icon>
+      <span>{{ service.description }}</span>
+    </div>
+    <ng-template #price>
+      <mat-icon [style.background]="service.iconBackground">
+        {{ service.icon }}
+      </mat-icon>
+      <span>{{ service.description }}</span>
+      <span>{{ service.price }}</span>
+    </ng-template>
+  </div>
+</div>

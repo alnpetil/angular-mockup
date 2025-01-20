@@ -1,0 +1,44 @@
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  padding: 10px;
+  background-color: #F7F7F4;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 24px 40px 24px 40px;
+}
+
+.card-header-title {
+  font-family: Merriweather;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30.17px;
+  letter-spacing: 0.005em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.card-header-amount {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.005em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
+  span {
+    font-family: 'Circular Std';
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 38.4px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+}
