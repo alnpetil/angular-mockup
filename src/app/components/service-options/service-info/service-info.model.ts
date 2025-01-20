@@ -3,5 +3,10 @@ export interface Service {
   description: string;
   color: string;
   iconBackground: string;
-  price?: string;
+  price?: Price;
+}
+
+export interface Price {
+  amount: string;
+  style?: string | null;
 }

@@ -1,0 +1,57 @@
+.service-info-container {
+  min-width: 100%;
+  margin: 20px 20px;
+}
+
+.service-info-title {
+  justify-content: center;
+  font-family: Open Sans;
+  width: 100%;
+  margin: .7em auto;
+  overflow: hidden;
+  text-align: center; 
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.005em;
+}
+
+.service-info-title:before, .service-info-title:after {
+  content: "";
+  display: inline-block;
+  width: 50%;
+  margin: 0 .5em 0 -55%;
+  vertical-align: middle;
+  border-bottom: 3px solid;
+  border-color: #F7F7F4;
+}
+
+.service-info-title:after {
+  margin: 0 -55% 0 .5em;
+}
+
+.services-list {
+  span {
+    font-size: 16px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 10px
+  }
+}
+
+.service-container {
+  gap: 10px;
+}
+
+.service-info-icon {
+  margin-right: 10px;
+  border-radius: 749.25px;
+  padding: 3px;
+  height: 24px;
+  width: 24px;
+}
+
+.service-with-price-container {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,21 +1,27 @@
   <div class="card-header">
     <span class="card-header-title">Bare Funeral Service</span>
-    <div class="card-header-amount">From <span>${{ amount }}</span> inc. GST</div>
+    <div class="card-header-amount">From <span>${{ ((withCoffin$ | async) ? 5899 : 3899) | number }}</span> inc. GST</div>
   </div>
   
   <div class="card-body">
     <div class="card-body-preference">
-      <span>A complete funeral service. You may have the service prior to cremation with your loved one's coffin present, or without the coffin present after the cremation (often referred to as a memorial service).</span>
-      <div>
-        <span>Service type preferred (?)</span>
-        <mat-tab-group preserveContent>
-          <mat-tab label="Service with coffin">
-            <app-service-options [optionCoffin]="true"></app-service-options>
-          </mat-tab>
-          <mat-tab label="Service without coffin">
-            <app-service-options [optionCoffin]="false"></app-service-options>
-          </mat-tab>
-        </mat-tab-group>
+      <p>A complete funeral service. You may have the service prior to cremation with your loved one's coffin present, or without the coffin present after the cremation (often referred to as a memorial service).</p>
+      <div class="coffin-option">
+        <span><p>Service type preferred (?)</p></span>
+        <div class="button-container">
+          <button mat-button class="service-button" (click)="setWithCoffin(true)" [style.background-color]="getWithCoffin() ? 'white' : '#E0F2EE'">
+            <mat-icon class="service-icon" [style.background-color]="getWithCoffin() ? '#E0F2EE' : 'white'" *ngIf="getWithCoffin()">check</mat-icon>
+            <span>Service with coffin</span>
+          </button>
+          <button mat-button class="service-button" (click)="setWithCoffin(false)" [style.background-color]="getWithCoffin() ? '#E0F2EE' : 'white'">
+            <mat-icon class="service-icon" [style.background-color]="getWithCoffin() ? 'white' : '#E0F2EE'" *ngIf="!getWithCoffin()">check</mat-icon>
+            <span>Service without coffin</span>
+          </button>
+        </div>
+        
+        <div>
+          <app-service-options [optionCoffin]="(withCoffin$ | async) ?? false"></app-service-options>
+        </div>
       </div>
     </div>
   </div>

@@ -1,20 +1,24 @@
-<div>
-  <span>
+<div class="service-info-container">
+  <h1 class="service-info-title">
     {{ title }}
-  </span>
-  <div [style.color]="service.color"  *ngFor="let service of services">
-    <div *ngIf="!hasPrice; else price">
-      <mat-icon [style.background]="service.iconBackground">
+  </h1>
+  <div class="services-list" [style.color]="service.color"  *ngFor="let service of services">
+    <div class="service-container" *ngIf="!hasPrice; else price">
+      <mat-icon [style.background]="service.iconBackground" class="service-info-icon">
         {{ service.icon }}
       </mat-icon>
       <span>{{ service.description }}</span>
     </div>
     <ng-template #price>
-      <mat-icon [style.background]="service.iconBackground">
-        {{ service.icon }}
-      </mat-icon>
-      <span>{{ service.description }}</span>
-      <span>{{ service.price }}</span>
+      <div class="service-with-price-container"> 
+        <div>
+          <mat-icon [style.background]="service.iconBackground" class="service-info-icon">
+            {{ service.icon }}
+          </mat-icon>
+          <span>{{ service.description }}</span>
+        </div>
+        <span [style]="service.price?.style">{{ service.price?.amount }}</span>
+      </div>
     </ng-template>
   </div>
 </div>

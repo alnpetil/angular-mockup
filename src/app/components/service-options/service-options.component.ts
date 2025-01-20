@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ServiceInfoComponent } from './service-info/service-info.component';
 import { Service } from './service-info/service-info.model';
 import { Input } from '@angular/core';
@@ -9,8 +9,63 @@ import { Input } from '@angular/core';
   templateUrl: './service-options.component.html',
   styleUrl: './service-options.component.scss'
 })
-export class ServiceOptionsComponent {
+export class ServiceOptionsComponent implements OnInit, OnChanges {
   @Input() optionCoffin: boolean = true;
+  
+  ngOnInit() {
+    console.log(this.optionCoffin);
+    this.setPriceValue();
+  }
+
+  ngOnChanges() {
+    console.log(this.optionCoffin);
+    this.setPriceValue();
+  }
+  
+  setPriceValue() {
+    this.funeralServiceWithPrice = [
+      {
+        icon: 'attach_money',
+        description: 'Viewing',
+        color: this.optionCoffin ? '#035E61' : '#6B7280',
+        iconBackground: this.optionCoffin ? '#B0E0D6' : '#D1D5DB',
+        price: {
+          amount: '$400',
+          style: this.optionCoffin ? null : 'text-decoration: line-through;'
+        }
+      },
+      {
+        icon: 'attach_money',
+        description: 'Premium Coffin',
+        color: this.optionCoffin ? '#035E61' : '#6B7280',
+        iconBackground: this.optionCoffin ? '#B0E0D6' : '#D1D5DB',
+        price: {
+          amount: '$100 - $4000',
+          style: this.optionCoffin ? null : 'text-decoration: line-through;'
+        }
+      },
+      {
+        icon: 'attach_money',
+        description: 'Live Streaming',
+        color: '#035E61',
+        iconBackground: '#B0E0D6',
+        price: {
+          amount: 'P.O.A'
+        }
+      },
+      {
+        icon: 'attach_money',
+        description: 'Catering',
+        color: '#035E61',
+        iconBackground: '#B0E0D6',
+        price: {
+          amount: 'P.O.A'
+        }
+      }
+    ];
+
+  }
+
 
   public cremationServices: Service[] = [
     {
@@ -67,33 +122,5 @@ export class ServiceOptionsComponent {
   ]
   
   public funeralServiceWithPrice: Service[] = [
-    {
-      icon: 'attach_money',
-      description: 'Viewing',
-      color: '#035E61',
-      iconBackground: '#B0E0D6',
-      price: '$400'
-    },
-    {
-      icon: 'attach_money',
-      description: 'Premium Coffin',
-      color: '#035E61',
-      iconBackground: '#B0E0D6',
-      price: '$100 - $4000'
-    },
-    {
-      icon: 'attach_money',
-      description: 'Live Streaming',
-      color: '#035E61',
-      iconBackground: '#B0E0D6',
-      price: 'P.O.A'
-    },
-    {
-      icon: 'attach_money',
-      description: 'Catering',
-      color: '#035E61',
-      iconBackground: '#B0E0D6',
-      price: 'P.O.A'
-    },
   ]
 }
