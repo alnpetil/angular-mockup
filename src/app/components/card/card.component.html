@@ -7,7 +7,7 @@
     <div class="card-body-preference">
       <p>A complete funeral service. You may have the service prior to cremation with your loved one's coffin present, or without the coffin present after the cremation (often referred to as a memorial service).</p>
       <div class="coffin-option">
-        <span><p>Service type preferred (?)</p></span>
+        <span><p>Service type preferred<mat-icon [style]="'font-size: 16px; position: relative; top: 10px;'">help_outline</mat-icon></p></span>
         <div class="button-container">
           <button mat-button class="service-button" (click)="setWithCoffin(true)" [style.background-color]="getWithCoffin() ? 'white' : '#E0F2EE'">
             <mat-icon class="service-icon" [style.background-color]="getWithCoffin() ? '#E0F2EE' : 'white'" *ngIf="getWithCoffin()">check</mat-icon>
@@ -26,3 +26,13 @@
     </div>
   </div>
   
+  <footer>
+    <button class="learn-more-button" mat-button>
+      Learn More
+      <span><mat-icon>arrow_forward</mat-icon></span>
+    </button>
+    <button class="call-button" mat-button>
+      <span><mat-icon class="material-icons-outlined" fontIcon="call"></mat-icon></span>
+      1800 071 176
+    </button>
+  </footer>
